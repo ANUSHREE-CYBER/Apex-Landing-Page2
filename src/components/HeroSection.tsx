@@ -1,0 +1,111 @@
+import { Button } from "@/components/ui/button";
+import phoneDesign from "@/assets/phone-design-3.svg";
+import scrollIndicator from "@/assets/scroll.svg";
+
+interface HeroSectionProps {
+  locale?: 'en' | 'hi';
+}
+
+const translations = {
+  en: {
+    tagline: "TRADE SMARTER | UPGRADE FASTER",
+    upgrade: "Upgrade",
+    yourDigital: " your",
+    digitalWorld: "Digital World with",
+    smart: "Smart",
+    value: " Value",
+    description: "Say goodbye to old devices and hello to cutting-edge technology. At Smart Value, we make it simple for you to trade in your old device and trade up to something new—all in one convenient place.",
+    scheduleDemo: "Schedule a Demo",
+    contactSales: "Contact Sales",
+    scrollDown: "Scroll down"
+  },
+  hi: {
+    tagline: "स्मार्ट तरीके से व्यापार करें | तेज़ी से अपग्रेड करें",
+    upgrade: "अपग्रेड करें",
+    yourDigital: "",
+    digitalWorld: " अपनी डिजिटल दुनिया",
+    smart: "स्मार्ट वैल्यू के साथ",
+    value: "",
+    description: "पुराने उपकरणों को अलविदा कहें और अत्याधुनिक तकनीक को नमस्ते। स्मार्ट वैल्यू में, हम आपके लिए अपने पुराने उपकरण को व्यापार करना और कुछ नया अपग्रेड करना आसान बनाते हैं।",
+    scheduleDemo: "डेमो शेड्यूल करें",
+    contactSales: "बिक्री से संपर्क करें",
+    scrollDown: "नीचे स्क्रॉल करें"
+  }
+};
+
+const HeroSection = ({ locale = 'en' }: HeroSectionProps) => {
+  const t = translations[locale];
+
+  return (
+    <section
+      className="relative w-full flex flex-col justify-start overflow-hidden"
+      style={{ backgroundColor: '#0E072F' }}>
+
+      <div className="relative w-full pt-24 pb-20">
+      <div className="container mx-auto px-6">
+        <div className="hero-content flex flex-col lg:flex-row lg:items-start lg:justify-between w-full max-w-[1320px] mx-auto">
+          {/* Left content — 55% */}
+          <div className="w-full lg:basis-[55%] lg:max-w-[55%] space-y-6 shrink-0 mt-16">
+            <p className="text-cyan-light font-bold text-xs lg:text-sm tracking-[0.2em] uppercase">
+              {t.tagline}
+            </p>
+            
+            <h1
+                className="text-4xl lg:text-[3.5rem] xl:text-[4.25rem] font-bold tracking-tight"
+                style={{ lineHeight: 1.05, letterSpacing: 0 }}>
+
+              <span className="inline-block bg-gradient-to-r from-[#C0FF3A] via-[#80E07D] to-[#00B2FF] bg-clip-text text-transparent">
+                {t.upgrade}
+              </span>
+              <span className="inline-block text-white">{t.yourDigital}</span>
+              <br />
+              <span className="inline-block text-white">{t.digitalWorld}</span>
+              <br />
+              <span className="inline-block" style={{ color: '#E88184' }}>{t.smart}</span>
+              {locale === 'en' && <span className="inline-block text-white">{t.value}</span>}
+            </h1>
+            
+            <p className="text-white/70 text-sm lg:text-base max-w-[420px] leading-relaxed" style={{ fontFamily: 'Poppins', fontWeight: 500 }}>
+              {t.description}
+            </p>
+            
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Button
+                  size="lg"
+                  className="bg-white text-background hover:bg-white/90 font-bold rounded-full px-8 h-12">
+
+                {t.scheduleDemo}
+              </Button>
+              <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white text-white hover:bg-white hover:text-background font-bold rounded-full px-8 h-12">
+
+                {t.contactSales}
+              </Button>
+            </div>
+          </div>
+          
+          {/* Right content — 45%, phones with glow */}
+          <div className="hidden lg:flex lg:basis-[45%] lg:max-w-[45%] items-start justify-center shrink-0 -mt-10">
+            <img
+              src={phoneDesign}
+              alt="Phone mockups with glow"
+              className="w-full max-w-[7000px] h-auto object-contain"
+            />
+          </div>
+        </div>
+      </div>
+      
+      {/* Single scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-20">
+        <img src={scrollIndicator} alt="Scroll indicator" className="w-16 h-16 object-fill" />
+        
+        <span className="text-[#C0FF3A] text-sm leading-none">
+        </span>
+      </div>
+      </div>
+    </section>);
+};
+
+export default HeroSection;
