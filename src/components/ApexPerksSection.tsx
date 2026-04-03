@@ -88,9 +88,9 @@ const ApexPerksSection = ({ locale = 'en' }: ApexPerksSectionProps) => {
             <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
 
               {/* Left Column - Phone Mockup */}
-              <ScrollReveal direction="left" delay={0.1}>
-                <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
-                  <div className="relative max-w-[320px] md:max-w-[400px]">
+              <ScrollReveal direction="left" delay={0.1} className="w-full lg:w-1/2">
+                <div className="w-full flex justify-center lg:justify-start">
+                  <div className="relative w-full max-w-[600px] md:max-w-[750px]">
                     <img
                       src={phoneMockup}
                       alt="Smart Value phone trade-in"

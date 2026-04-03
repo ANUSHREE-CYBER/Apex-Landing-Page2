@@ -66,15 +66,14 @@ const ContactSection = ({ locale = 'en' }: ContactSectionProps) => {
 
         {/* Contact Card */}
         <ScrollReveal direction="up">
-          <div className="relative flex flex-col lg:flex-row rounded-3xl overflow-visible" style={{ minHeight: '480px' }}>
+          <div className="relative flex flex-col lg:flex-row rounded-3xl overflow-visible">
 
             {/* Left Image */}
             <div className="relative w-full lg:w-[45%] rounded-l-3xl overflow-hidden" style={{ minHeight: '400px' }}>
               <img
                 src={contactBg}
                 alt="Office lounge"
-                className="w-full h-full object-cover"
-                style={{ minHeight: '100%' }}
+                className="absolute inset-0 w-full h-full object-cover"
               />
               {/* Green Info Box */}
               <div
