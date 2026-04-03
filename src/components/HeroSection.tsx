@@ -63,7 +63,7 @@ const HeroSection = ({ locale = 'en' }: HeroSectionProps) => {
 
               <motion.h1
                 className="text-4xl lg:text-[3.5rem] xl:text-[4.25rem] font-bold tracking-tight"
-                style={{ lineHeight: 1.05, letterSpacing: 0 }}
+                style={{ lineHeight: 1.25, letterSpacing: 0 }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.25 }}
@@ -71,6 +71,7 @@ const HeroSection = ({ locale = 'en' }: HeroSectionProps) => {
                 <span className="inline-block bg-gradient-to-r from-[#C0FF3A] via-[#80E07D] to-[#00B2FF] bg-clip-text text-transparent">
                   {t.upgrade}
                 </span>
+                {" "}
                 <span className="inline-block text-white">{t.yourDigital}</span>
                 <br />
                 <span className="inline-block text-white">{t.digitalWorld}</span>
@@ -112,15 +113,14 @@ const HeroSection = ({ locale = 'en' }: HeroSectionProps) => {
 
             {/* Right content — phones */}
             <motion.div
-              className="hidden lg:flex lg:basis-[45%] lg:max-w-[45%] items-start justify-center shrink-0 -mt-10"
-              initial={{ opacity: 0, x: 60 }}
+              className="hidden lg:flex lg:basis-[50%] lg:max-w-[50%] items-center justify-center shrink-0 mt-8"              initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <img
                 src={phoneDesign}
                 alt="Phone mockups with glow"
-                className="w-full max-w-[7000px] h-auto object-contain"
+                className="w-full scale-[2.2] h-auto object-contain"
               />
             </motion.div>
 
@@ -129,12 +129,18 @@ const HeroSection = ({ locale = 'en' }: HeroSectionProps) => {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-20"
+          className="absolute bottom-48 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.9 }}
         >
-          <img src={scrollIndicator} alt="Scroll indicator" className="w-16 h-16 object-fill" />
+          <motion.img
+            src={scrollIndicator}
+            alt="Scroll indicator"
+            className="w-24 h-24 object-fill"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          />
         </motion.div>
       </div>
 
